@@ -20,35 +20,15 @@
 //10 -- O(n)
 
 //11 --
+const hanoi = (disc, src, aux, dst) => {
+  if (disc > 0) {
+    hanoi(disc - 1, src, dst, aux);
+    console.log(`Move disc ${disc} from ${src} to ${dst}`);
+    hanoi(disc - 1, aux, src, dst);
+  }
+};
 
-const stackA = new Stack()
-const stackB = new Stack()
-const stackC = new Stack()
-
-let i = 3;
-for(let t = i; t > 0; t--) {
-    stackA.push(t)
-}
-console.log(runHanoi(i, stackA, stackB, stackC))
-
-function runHanoi(z, a, b, c) {
-
-    if(z==1) {
-        move(a,b)
-        num++
-    } else {
-        runHanoi(z -1, a, c, b);
-        move(a,b);
-        num++;
-
-        runHanoi(z-1, c, b, a)
-    }
-}
-
-function move(a, b) {
-    b.push(a.pop().content);
-}
-
+hanoi(2, 'Rod A', 'Rod B', 'Rod C');
 
 //12  1-- O(1)
 
@@ -64,8 +44,4 @@ function move(a, b) {
 
 //12  7-- O(1)
 
-
-//13 -- 
-
-
-
+//13 --
